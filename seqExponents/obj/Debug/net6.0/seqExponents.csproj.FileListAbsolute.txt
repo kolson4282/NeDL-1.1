@@ -1,0 +1,15 @@
+C:\Users\KOlson\Desktop\NeDL\seqExponents\bin\Debug\net6.0\seqExponents.exe
+C:\Users\KOlson\Desktop\NeDL\seqExponents\bin\Debug\net6.0\seqExponents.deps.json
+C:\Users\KOlson\Desktop\NeDL\seqExponents\bin\Debug\net6.0\seqExponents.runtimeconfig.json
+C:\Users\KOlson\Desktop\NeDL\seqExponents\bin\Debug\net6.0\seqExponents.dll
+C:\Users\KOlson\Desktop\NeDL\seqExponents\bin\Debug\net6.0\ref\seqExponents.dll
+C:\Users\KOlson\Desktop\NeDL\seqExponents\bin\Debug\net6.0\seqExponents.pdb
+C:\Users\KOlson\Desktop\NeDL\seqExponents\obj\Debug\net6.0\seqExponents.csproj.AssemblyReference.cache
+C:\Users\KOlson\Desktop\NeDL\seqExponents\obj\Debug\net6.0\seqExponents.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\KOlson\Desktop\NeDL\seqExponents\obj\Debug\net6.0\seqExponents.AssemblyInfoInputs.cache
+C:\Users\KOlson\Desktop\NeDL\seqExponents\obj\Debug\net6.0\seqExponents.AssemblyInfo.cs
+C:\Users\KOlson\Desktop\NeDL\seqExponents\obj\Debug\net6.0\seqExponents.csproj.CoreCompileInputs.cache
+C:\Users\KOlson\Desktop\NeDL\seqExponents\obj\Debug\net6.0\seqExponents.dll
+C:\Users\KOlson\Desktop\NeDL\seqExponents\obj\Debug\net6.0\ref\seqExponents.dll
+C:\Users\KOlson\Desktop\NeDL\seqExponents\obj\Debug\net6.0\seqExponents.pdb
+C:\Users\KOlson\Desktop\NeDL\seqExponents\obj\Debug\net6.0\seqExponents.genruntimeconfig.cache

@@ -1,0 +1,15 @@
+C:\Users\KOlson\Desktop\NeDL\conversions\YardsToFeetAndInches\obj\Debug\net6.0\YardsToFeetAndInches.csproj.AssemblyReference.cache
+C:\Users\KOlson\Desktop\NeDL\conversions\YardsToFeetAndInches\obj\Debug\net6.0\YardsToFeetAndInches.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\KOlson\Desktop\NeDL\conversions\YardsToFeetAndInches\obj\Debug\net6.0\YardsToFeetAndInches.AssemblyInfoInputs.cache
+C:\Users\KOlson\Desktop\NeDL\conversions\YardsToFeetAndInches\obj\Debug\net6.0\YardsToFeetAndInches.AssemblyInfo.cs
+C:\Users\KOlson\Desktop\NeDL\conversions\YardsToFeetAndInches\obj\Debug\net6.0\YardsToFeetAndInches.csproj.CoreCompileInputs.cache
+C:\Users\KOlson\Desktop\NeDL\conversions\YardsToFeetAndInches\bin\Debug\net6.0\YardsToFeetAndInches.exe
+C:\Users\KOlson\Desktop\NeDL\conversions\YardsToFeetAndInches\bin\Debug\net6.0\YardsToFeetAndInches.deps.json
+C:\Users\KOlson\Desktop\NeDL\conversions\YardsToFeetAndInches\bin\Debug\net6.0\YardsToFeetAndInches.runtimeconfig.json
+C:\Users\KOlson\Desktop\NeDL\conversions\YardsToFeetAndInches\bin\Debug\net6.0\YardsToFeetAndInches.dll
+C:\Users\KOlson\Desktop\NeDL\conversions\YardsToFeetAndInches\bin\Debug\net6.0\ref\YardsToFeetAndInches.dll
+C:\Users\KOlson\Desktop\NeDL\conversions\YardsToFeetAndInches\bin\Debug\net6.0\YardsToFeetAndInches.pdb
+C:\Users\KOlson\Desktop\NeDL\conversions\YardsToFeetAndInches\obj\Debug\net6.0\YardsToFeetAndInches.dll
+C:\Users\KOlson\Desktop\NeDL\conversions\YardsToFeetAndInches\obj\Debug\net6.0\ref\YardsToFeetAndInches.dll
+C:\Users\KOlson\Desktop\NeDL\conversions\YardsToFeetAndInches\obj\Debug\net6.0\YardsToFeetAndInches.pdb
+C:\Users\KOlson\Desktop\NeDL\conversions\YardsToFeetAndInches\obj\Debug\net6.0\YardsToFeetAndInches.genruntimeconfig.cache

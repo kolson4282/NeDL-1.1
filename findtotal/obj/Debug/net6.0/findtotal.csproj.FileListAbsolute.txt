@@ -1,0 +1,15 @@
+C:\Users\KOlson\Desktop\NeDL\findtotal\bin\Debug\net6.0\findtotal.exe
+C:\Users\KOlson\Desktop\NeDL\findtotal\bin\Debug\net6.0\findtotal.deps.json
+C:\Users\KOlson\Desktop\NeDL\findtotal\bin\Debug\net6.0\findtotal.runtimeconfig.json
+C:\Users\KOlson\Desktop\NeDL\findtotal\bin\Debug\net6.0\findtotal.dll
+C:\Users\KOlson\Desktop\NeDL\findtotal\bin\Debug\net6.0\ref\findtotal.dll
+C:\Users\KOlson\Desktop\NeDL\findtotal\bin\Debug\net6.0\findtotal.pdb
+C:\Users\KOlson\Desktop\NeDL\findtotal\obj\Debug\net6.0\findtotal.csproj.AssemblyReference.cache
+C:\Users\KOlson\Desktop\NeDL\findtotal\obj\Debug\net6.0\findtotal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\KOlson\Desktop\NeDL\findtotal\obj\Debug\net6.0\findtotal.AssemblyInfoInputs.cache
+C:\Users\KOlson\Desktop\NeDL\findtotal\obj\Debug\net6.0\findtotal.AssemblyInfo.cs
+C:\Users\KOlson\Desktop\NeDL\findtotal\obj\Debug\net6.0\findtotal.csproj.CoreCompileInputs.cache
+C:\Users\KOlson\Desktop\NeDL\findtotal\obj\Debug\net6.0\findtotal.dll
+C:\Users\KOlson\Desktop\NeDL\findtotal\obj\Debug\net6.0\ref\findtotal.dll
+C:\Users\KOlson\Desktop\NeDL\findtotal\obj\Debug\net6.0\findtotal.pdb
+C:\Users\KOlson\Desktop\NeDL\findtotal\obj\Debug\net6.0\findtotal.genruntimeconfig.cache

@@ -1,0 +1,15 @@
+C:\Users\KOlson\Desktop\NeDL\findmax\bin\Debug\net6.0\findmax.exe
+C:\Users\KOlson\Desktop\NeDL\findmax\bin\Debug\net6.0\findmax.deps.json
+C:\Users\KOlson\Desktop\NeDL\findmax\bin\Debug\net6.0\findmax.runtimeconfig.json
+C:\Users\KOlson\Desktop\NeDL\findmax\bin\Debug\net6.0\findmax.dll
+C:\Users\KOlson\Desktop\NeDL\findmax\bin\Debug\net6.0\ref\findmax.dll
+C:\Users\KOlson\Desktop\NeDL\findmax\bin\Debug\net6.0\findmax.pdb
+C:\Users\KOlson\Desktop\NeDL\findmax\obj\Debug\net6.0\findmax.csproj.AssemblyReference.cache
+C:\Users\KOlson\Desktop\NeDL\findmax\obj\Debug\net6.0\findmax.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\KOlson\Desktop\NeDL\findmax\obj\Debug\net6.0\findmax.AssemblyInfoInputs.cache
+C:\Users\KOlson\Desktop\NeDL\findmax\obj\Debug\net6.0\findmax.AssemblyInfo.cs
+C:\Users\KOlson\Desktop\NeDL\findmax\obj\Debug\net6.0\findmax.csproj.CoreCompileInputs.cache
+C:\Users\KOlson\Desktop\NeDL\findmax\obj\Debug\net6.0\findmax.dll
+C:\Users\KOlson\Desktop\NeDL\findmax\obj\Debug\net6.0\ref\findmax.dll
+C:\Users\KOlson\Desktop\NeDL\findmax\obj\Debug\net6.0\findmax.pdb
+C:\Users\KOlson\Desktop\NeDL\findmax\obj\Debug\net6.0\findmax.genruntimeconfig.cache

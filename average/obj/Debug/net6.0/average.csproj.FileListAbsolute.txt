@@ -1,0 +1,15 @@
+C:\Users\KOlson\Desktop\NeDL\average\bin\Debug\net6.0\average.exe
+C:\Users\KOlson\Desktop\NeDL\average\bin\Debug\net6.0\average.deps.json
+C:\Users\KOlson\Desktop\NeDL\average\bin\Debug\net6.0\average.runtimeconfig.json
+C:\Users\KOlson\Desktop\NeDL\average\bin\Debug\net6.0\average.dll
+C:\Users\KOlson\Desktop\NeDL\average\bin\Debug\net6.0\ref\average.dll
+C:\Users\KOlson\Desktop\NeDL\average\bin\Debug\net6.0\average.pdb
+C:\Users\KOlson\Desktop\NeDL\average\obj\Debug\net6.0\average.csproj.AssemblyReference.cache
+C:\Users\KOlson\Desktop\NeDL\average\obj\Debug\net6.0\average.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\KOlson\Desktop\NeDL\average\obj\Debug\net6.0\average.AssemblyInfoInputs.cache
+C:\Users\KOlson\Desktop\NeDL\average\obj\Debug\net6.0\average.AssemblyInfo.cs
+C:\Users\KOlson\Desktop\NeDL\average\obj\Debug\net6.0\average.csproj.CoreCompileInputs.cache
+C:\Users\KOlson\Desktop\NeDL\average\obj\Debug\net6.0\average.dll
+C:\Users\KOlson\Desktop\NeDL\average\obj\Debug\net6.0\ref\average.dll
+C:\Users\KOlson\Desktop\NeDL\average\obj\Debug\net6.0\average.pdb
+C:\Users\KOlson\Desktop\NeDL\average\obj\Debug\net6.0\average.genruntimeconfig.cache

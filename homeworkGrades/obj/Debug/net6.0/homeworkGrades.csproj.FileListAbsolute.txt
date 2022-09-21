@@ -1,0 +1,15 @@
+C:\Users\KOlson\Desktop\NeDL\homeworkGrades\bin\Debug\net6.0\homeworkGrades.exe
+C:\Users\KOlson\Desktop\NeDL\homeworkGrades\bin\Debug\net6.0\homeworkGrades.deps.json
+C:\Users\KOlson\Desktop\NeDL\homeworkGrades\bin\Debug\net6.0\homeworkGrades.runtimeconfig.json
+C:\Users\KOlson\Desktop\NeDL\homeworkGrades\bin\Debug\net6.0\homeworkGrades.dll
+C:\Users\KOlson\Desktop\NeDL\homeworkGrades\bin\Debug\net6.0\ref\homeworkGrades.dll
+C:\Users\KOlson\Desktop\NeDL\homeworkGrades\bin\Debug\net6.0\homeworkGrades.pdb
+C:\Users\KOlson\Desktop\NeDL\homeworkGrades\obj\Debug\net6.0\homeworkGrades.csproj.AssemblyReference.cache
+C:\Users\KOlson\Desktop\NeDL\homeworkGrades\obj\Debug\net6.0\homeworkGrades.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\KOlson\Desktop\NeDL\homeworkGrades\obj\Debug\net6.0\homeworkGrades.AssemblyInfoInputs.cache
+C:\Users\KOlson\Desktop\NeDL\homeworkGrades\obj\Debug\net6.0\homeworkGrades.AssemblyInfo.cs
+C:\Users\KOlson\Desktop\NeDL\homeworkGrades\obj\Debug\net6.0\homeworkGrades.csproj.CoreCompileInputs.cache
+C:\Users\KOlson\Desktop\NeDL\homeworkGrades\obj\Debug\net6.0\homeworkGrades.dll
+C:\Users\KOlson\Desktop\NeDL\homeworkGrades\obj\Debug\net6.0\ref\homeworkGrades.dll
+C:\Users\KOlson\Desktop\NeDL\homeworkGrades\obj\Debug\net6.0\homeworkGrades.pdb
+C:\Users\KOlson\Desktop\NeDL\homeworkGrades\obj\Debug\net6.0\homeworkGrades.genruntimeconfig.cache

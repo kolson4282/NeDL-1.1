@@ -1,0 +1,15 @@
+C:\Users\KOlson\Desktop\NeDL\conversions\SecondsToDays\obj\Debug\net6.0\SecondsToDays.csproj.AssemblyReference.cache
+C:\Users\KOlson\Desktop\NeDL\conversions\SecondsToDays\obj\Debug\net6.0\SecondsToDays.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\KOlson\Desktop\NeDL\conversions\SecondsToDays\obj\Debug\net6.0\SecondsToDays.AssemblyInfoInputs.cache
+C:\Users\KOlson\Desktop\NeDL\conversions\SecondsToDays\obj\Debug\net6.0\SecondsToDays.AssemblyInfo.cs
+C:\Users\KOlson\Desktop\NeDL\conversions\SecondsToDays\obj\Debug\net6.0\SecondsToDays.csproj.CoreCompileInputs.cache
+C:\Users\KOlson\Desktop\NeDL\conversions\SecondsToDays\bin\Debug\net6.0\SecondsToDays.exe
+C:\Users\KOlson\Desktop\NeDL\conversions\SecondsToDays\bin\Debug\net6.0\SecondsToDays.deps.json
+C:\Users\KOlson\Desktop\NeDL\conversions\SecondsToDays\bin\Debug\net6.0\SecondsToDays.runtimeconfig.json
+C:\Users\KOlson\Desktop\NeDL\conversions\SecondsToDays\bin\Debug\net6.0\SecondsToDays.dll
+C:\Users\KOlson\Desktop\NeDL\conversions\SecondsToDays\bin\Debug\net6.0\ref\SecondsToDays.dll
+C:\Users\KOlson\Desktop\NeDL\conversions\SecondsToDays\bin\Debug\net6.0\SecondsToDays.pdb
+C:\Users\KOlson\Desktop\NeDL\conversions\SecondsToDays\obj\Debug\net6.0\SecondsToDays.dll
+C:\Users\KOlson\Desktop\NeDL\conversions\SecondsToDays\obj\Debug\net6.0\ref\SecondsToDays.dll
+C:\Users\KOlson\Desktop\NeDL\conversions\SecondsToDays\obj\Debug\net6.0\SecondsToDays.pdb
+C:\Users\KOlson\Desktop\NeDL\conversions\SecondsToDays\obj\Debug\net6.0\SecondsToDays.genruntimeconfig.cache
