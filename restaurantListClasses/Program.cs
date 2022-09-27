@@ -44,11 +44,11 @@ class Program
                         break;
                     case 'U':
                         //Update an item in the list
-                        // UpdateRecord(reviews);
+                        UpdateRecord(list);
                         break;
                     case 'D':
                         //delete an item from the list
-                        // DeleteRecord(reviews);
+                        // DeleteRecord(list);
                         break;
                     case 'Q':
                         Console.WriteLine("Good Bye!");
@@ -166,5 +166,26 @@ class Program
             }
         } while (rating < 0 || rating > 5);
         return rating;
+    }
+
+    static void UpdateRecord(RestaurantList list)
+    {
+        //ask the user for a restaurant to update.
+        list.Print();
+        Console.WriteLine("What is the name of the restaurant you would like to update?");
+        string name = Console.ReadLine()!; //Currently requires an exact match. Maybe make case insensitive?
+        //find the record in the list.
+        Restaurant? restaurant = list.Find(name);
+        if (restaurant == null)
+        {
+            Console.WriteLine($"Couldn't find entry {name}. Please try again.");
+            return;
+        }
+        //if found
+        //Ask the user for an updated review
+
+        int newRating = GetValidStarRating($"Current rating is {restaurant.Rating}. what would you like to change it to?");
+        //update the record.
+        restaurant.Rating = newRating;
     }
 }

@@ -5,6 +5,6 @@ McDonalds
 Burger King
 2
 Sonic
-5
+3
 Pizza Hut
 4

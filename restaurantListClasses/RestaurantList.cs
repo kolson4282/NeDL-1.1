@@ -83,4 +83,19 @@ class RestaurantList
         }
         return file;
     }
+
+    public Restaurant? Find(string name)
+    {
+        foreach (Restaurant r in list)
+        {
+            if (r != null)
+            {
+                if (r.Name == name)
+                {
+                    return r;
+                }
+            }
+        }
+        return null;
+    }
 }
