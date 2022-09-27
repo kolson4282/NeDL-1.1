@@ -12,12 +12,14 @@ class RestaurantList
 
     public RestaurantList()
     {
+        //Default Constructor. Default to a length of 25
         list = new Restaurant[25];
         length = 25;
     }
 
     public RestaurantList(int arrLength)
     {
+        //Customizable length if you want to create an array of a different length. 
         list = new Restaurant[arrLength];
         length = arrLength;
     }
@@ -25,7 +27,7 @@ class RestaurantList
     public void AddRestaurant(Restaurant restaurant)
     {
 
-        //Create new restaurant Review
+        //Add a new restaurant review to the list.
         if (isFull())
         {
             //if the array is full. Don't try to create a new record
@@ -58,6 +60,7 @@ class RestaurantList
 
     public void Print()
     {
+        //Prints the list out in a user friendly format.
         for (int i = 0; i < Length; i++)
         {
             if (list[i] != null) //don't print if the line is empty
@@ -65,5 +68,19 @@ class RestaurantList
                 Console.WriteLine($"{list[i].Name} : {list[i].Rating} out of 5 stars");
             }
         }
+    }
+
+    public string ToFileString()
+    {
+        //Create the string that will get saved to a file with the name of the restaurant on one line and the rating on the next.
+        string file = "";
+        foreach (Restaurant r in list)
+        {
+            if (r != null)
+            {
+                file += r.Name + "\n" + r.Rating + "\n";
+            }
+        }
+        return file;
     }
 }

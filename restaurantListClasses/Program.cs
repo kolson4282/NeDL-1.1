@@ -14,40 +14,54 @@ class Program
     static void Main(string[] args)
     {
 
-        string input;
+        string input = "";
         string fileName = "reviews.txt";
         RestaurantList list = new RestaurantList();
         do
         {
-            input = GetMenuOption();//This will always be upper case. To add an additional option, just need to add a case below.
-
-            switch (input[0])
+            try
             {
-                case 'O':
-                    list = LoadData(fileName);
-                    break;
-                case 'S':
-                    // SaveToFile(fileName, reviews);
-                    break;
-                case 'C':
-                    Restaurant r = GetRestaurantFromUser();
-                    list.AddRestaurant(r);
-                    break;
-                case 'R':
-                    list.Print();
-                    break;
-                case 'U':
-                    // UpdateRecord(reviews);
-                    break;
-                case 'D':
-                    // DeleteRecord(reviews);
-                    break;
-                case 'Q':
-                    Console.WriteLine("Good Bye!");
-                    break;
-                default: //if input is not one of these options, then it is invalid. 
-                    Console.WriteLine("That is an invalid choice. Please try again.");
-                    break;
+                input = GetMenuOption();//This will always be upper case. To add an additional option, just need to add a case below.
+
+                switch (input[0])
+                {
+                    case 'O':
+                        //Load data from the file
+                        list = LoadData(fileName);
+                        break;
+                    case 'S':
+                        //save the list to a file
+                        SaveToFile(fileName, list);
+                        break;
+                    case 'C':
+                        //add a new restaurant to the list
+                        Restaurant r = GetRestaurantFromUser();
+                        list.AddRestaurant(r);
+                        break;
+                    case 'R':
+                        //print the list out
+                        list.Print();
+                        break;
+                    case 'U':
+                        //Update an item in the list
+                        // UpdateRecord(reviews);
+                        break;
+                    case 'D':
+                        //delete an item from the list
+                        // DeleteRecord(reviews);
+                        break;
+                    case 'Q':
+                        Console.WriteLine("Good Bye!");
+                        break;
+                    default: //if input is not one of these options, then it is invalid. 
+                        Console.WriteLine("That is an invalid choice. Please try again.");
+                        break;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Ran into an issue");
+                Console.WriteLine(e.Message);
             }
         } while (input != "Q");
     }
@@ -95,14 +109,29 @@ class Program
             Console.WriteLine($"There were too many lines in your file. Only loading the first {list.Length}\n");
             list.Print();
         }
-        catch (Exception e)
-        {
-            //any other exception we don't want to return any data. 
-            Console.WriteLine("Could not load data.");
-            Console.WriteLine(e.Message);
-            list = new RestaurantList();
-        }
+
         return list;
+    }
+
+    static void SaveToFile(string fileName, RestaurantList list)
+    {
+        string file = list.ToFileString();
+        //don't save if it's empty so as not to overwrite a file that might have data in it. 
+        if (file == "")
+        {
+            Console.WriteLine("Your file will be empty. Are you sure you want to save? (y/n)");
+            string answer = Console.ReadLine()!.ToUpper();
+            if (answer != "y" && answer != "Y")
+            {
+                Console.WriteLine("Did not write to the file");
+                return;
+            }
+        }
+        using StreamWriter sr = new(fileName);
+        sr.Write(file);
+
+        Console.WriteLine($"Successfully wrote to file {fileName}");
+
     }
 
     static Restaurant GetRestaurantFromUser()
