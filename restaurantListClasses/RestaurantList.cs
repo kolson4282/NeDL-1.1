@@ -1,5 +1,8 @@
 namespace RestaurantList;
 
+
+//Might refactor to use List instead of Array
+
 class RestaurantList
 {
 
