@@ -20,6 +20,11 @@ namespace Bonuses
             return Rate * 40;
         }
 
+        public override string ToFileString()
+        {
+            return $"{FirstName}\n{LastName}\nhourly\n{Rate}";
+        }
+
         //Don't need the ToString as calling the base ToString will use this CalculateBonus
     }
 }

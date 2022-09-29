@@ -18,5 +18,10 @@ namespace Bonuses
         {
             return salary * .10;
         }
+
+        public override string ToFileString()
+        {
+            return $"{FirstName}\n{LastName}\nsalary\n{Salary}";
+        }
     }
 }

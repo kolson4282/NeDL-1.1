@@ -42,6 +42,11 @@ namespace Bonuses
             return 0;
         }
 
+        public virtual string ToFileString()
+        {
+            return $"{firstName}\n{lastName}\n{type}\n0";
+        }
+
         public override string ToString()
         {
             return $"{firstName} {lastName} - {type} - Bonus: {CalculateBonus()}";

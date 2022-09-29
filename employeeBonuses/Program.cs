@@ -17,7 +17,7 @@
                         Load("employees.txt");
                         break;
                     case "S": //Save
-                        Console.WriteLine("Saving...");
+                        Save("employeeSaved.txt");
                         break;
                     case "C": //Create
                         AddEmployee();
@@ -109,22 +109,38 @@
             }
         }
 
-        static void Print()
+        static void Save(string fileName)
         {
-            foreach (Employee? employee in employees)
+            if (employees[0] == null)
             {
-                if (employee != null) //Don't print if the employee is null. 
+                Console.WriteLine("Your file will be empty. Are you sure you want to save? (y/n)");
+                string answer = Console.ReadLine()!.ToUpper();
+                if (answer != "y" && answer != "Y")
                 {
-                    Console.WriteLine(employee);
+                    Console.WriteLine("Did not write to the file");
+                    return;
                 }
             }
+            using StreamWriter sr = new(fileName);
+
+            for (int i = 0; i < employees.GetLength(0); i++)
+            {
+                if (employees[i] != null)
+                {
+                    //Wrting four lines for every employee. 
+                    sr.WriteLine(employees[i]!.ToFileString());
+                }
+            }
+
+            Console.WriteLine($"Successfully wrote to file {fileName}");
+
         }
 
         static void AddEmployee()
         {
             for (int i = 0; i < employees.Length; i++)
             {
-                if (employees[i] == null)
+                if (employees[i] == null) //Look for the first empty space in the array. 
                 {
                     Console.WriteLine("What is the first name of the employee you would like to add?");
                     string firstName = Console.ReadLine()!;
@@ -153,7 +169,18 @@
                     return;
                 }
             }
-            Console.WriteLine("The list is full. You can only list 25 employees");
+            Console.WriteLine("The list is full. You can only list 25 employees"); //This will only print if there is no space in the array. 
+        }
+
+        static void Print()
+        {
+            foreach (Employee? employee in employees)
+            {
+                if (employee != null) //Don't print if the employee is null. 
+                {
+                    Console.WriteLine(employee);
+                }
+            }
         }
     }
 }

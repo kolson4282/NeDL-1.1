@@ -9,7 +9,7 @@ hourly
 Another
 Person
 contractor
-100
+0
 Minimum
 Wage
 hourly
