@@ -23,5 +23,5 @@ namespace Bonuses
         {
             return $"{FirstName}\n{LastName}\nsalary\n{Salary}";
         }
-    }
-}
+    }//End Salary
+}//End Namespace

@@ -26,5 +26,5 @@ namespace Bonuses
         }
 
         //Don't need the ToString as calling the base ToString will use this CalculateBonus
-    }
-}
+    } //End Hourly
+} //End Namespace

@@ -111,7 +111,7 @@
 
         static void Save(string fileName)
         {
-            if (employees[0] == null)
+            if (employees[0] == null) //Assuming all null values are at the end. If the first entry is null, the whole array is empty
             {
                 Console.WriteLine("Your file will be empty. Are you sure you want to save? (y/n)");
                 string answer = Console.ReadLine()!.ToUpper();
@@ -182,5 +182,5 @@
                 }
             }
         }
-    }
-}
+    }//End main class
+} //End Namespace
