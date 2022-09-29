@@ -261,7 +261,6 @@
                             Console.WriteLine($"Updated the type of {firstName} {lastName} to {type}");
                         }
                     }
-                    Console.WriteLine($"Successfully updated {firstName} {lastName}");
                     return;
                 }
             }
