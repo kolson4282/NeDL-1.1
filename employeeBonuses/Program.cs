@@ -3,7 +3,7 @@
     class Program
     {
 
-        static Employee[] names = new Employee[25];
+        static Employee[] employees = new Employee[25];
         static void Main()
         {
             string input;
@@ -14,7 +14,7 @@
                 switch (input)
                 {
                     case "L": //Load
-                        Load();
+                        Load("employees.txt");
                         break;
                     case "S": //Save
                         Console.WriteLine("Saving...");
@@ -43,7 +43,6 @@
 
         static string GetMenuOption()
         {
-
             Console.WriteLine("What would you like to do?");
             Console.WriteLine("L: Load data from a file");
             Console.WriteLine("S: Store the data into the file");
@@ -57,16 +56,62 @@
             return input;
         }
 
-        static void Load()
+        static void Load(string fileName)
         {
-            names[0] = new HourlyEmployee("John", "Smith", 10);
-            names[1] = new SalaryEmployee("Keith", "Olson", 50000);
-            names[2] = new Employee("Test", "Test", "other");
+            //Load from file
+            try
+            {
+                int index = 0;
+                using (StreamReader sr = File.OpenText(fileName))
+                {
+                    //read the file line by line and assign to an index in data. 
+                    while (!sr.EndOfStream) // while we are not at the end of the file. (basically while there is a next line. Assuming data is correct in the file)
+                    {
+                        string firstName = sr.ReadLine()!;
+                        string lastName = sr.ReadLine()!;
+                        string type = sr.ReadLine()!;
+                        double rate = Convert.ToDouble(sr.ReadLine());
+                        Employee e;
+
+                        switch (type)
+                        {
+                            case "hourly":
+                                e = new HourlyEmployee(firstName, lastName, rate);
+                                break;
+                            case "salary":
+                                e = new SalaryEmployee(firstName, lastName, rate);
+                                break;
+                            default:
+                                e = new Employee(firstName, lastName, type);
+                                break;
+                        }
+                        employees[index] = e;
+                        index++;
+                    }
+                }
+                Console.WriteLine($"Successfully loaded from file {fileName}");
+                Print();
+
+            }
+            catch (IndexOutOfRangeException)
+            {
+                //catching an index exception to see if there are too many lines in the file. We still load the first 25 if there is.
+                //NOTE: if you save the file after this, only the first 25 lines will be saved, and anything else will be deleted from the file. 
+                Console.WriteLine("There were too many lines in your file. Only loading the first 25\n");
+                Print();
+            }
+            catch (Exception e)
+            {
+                //any other exception we don't want to return any data. 
+                Console.WriteLine("Could not load data.");
+                Console.WriteLine(e.Message);
+                employees = new Employee[25];
+            }
         }
 
         static void Print()
         {
-            foreach (Employee employee in names)
+            foreach (Employee employee in employees)
             {
                 if (employee != null) //Don't print if the employee is null. 
                 {
