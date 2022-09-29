@@ -3,7 +3,7 @@
     class Program
     {
 
-        static Employee[] employees = new Employee[25];
+        static Employee?[] employees = new Employee[25];
         static void Main()
         {
             string input;
@@ -20,7 +20,7 @@
                         Console.WriteLine("Saving...");
                         break;
                     case "C": //Create
-                        Console.WriteLine("Creating...");
+                        AddEmployee();
                         break;
                     case "R": //Read
                         Print();
@@ -111,13 +111,49 @@
 
         static void Print()
         {
-            foreach (Employee employee in employees)
+            foreach (Employee? employee in employees)
             {
                 if (employee != null) //Don't print if the employee is null. 
                 {
                     Console.WriteLine(employee);
                 }
             }
+        }
+
+        static void AddEmployee()
+        {
+            for (int i = 0; i < employees.Length; i++)
+            {
+                if (employees[i] == null)
+                {
+                    Console.WriteLine("What is the first name of the employee you would like to add?");
+                    string firstName = Console.ReadLine()!;
+                    Console.WriteLine($"What is the last name of {firstName}");
+                    string lastName = Console.ReadLine()!;
+                    Console.WriteLine($"What type of employee is {firstName} {lastName}");
+                    string type = Console.ReadLine()!;
+
+                    if (type.ToLower() == "salary")
+                    {
+                        Console.WriteLine($"What is the salary for {firstName} {lastName}");
+                        double salary = Convert.ToDouble(Console.ReadLine());
+                        employees[i] = new SalaryEmployee(firstName, lastName, salary);
+                    }
+                    else if (type.ToLower() == "hourly")
+                    {
+                        Console.WriteLine($"What is the hourly rate for {firstName} {lastName}");
+                        double rate = Convert.ToDouble(Console.ReadLine());
+                        employees[i] = new HourlyEmployee(firstName, lastName, rate);
+                    }
+                    else
+                    {
+                        employees[i] = new Employee(firstName, lastName, type);
+                    }
+                    Console.WriteLine($"{type} employee {firstName} {lastName} successfully added");
+                    return;
+                }
+            }
+            Console.WriteLine("The list is full. You can only list 25 employees");
         }
     }
 }
