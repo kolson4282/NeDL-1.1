@@ -16,7 +16,7 @@ namespace Bonuses
             set { lastName = value; }
         }
 
-        private string type;
+        private string type; //Should be hourly or salary or something else. Always lowercase.
         public string Type
         {
             get { return type; }
@@ -34,7 +34,7 @@ namespace Bonuses
         {
             firstName = fname;
             lastName = lname;
-            type = emptype;
+            type = emptype.ToLower();
         }
 
         public virtual double CalculateBonus()

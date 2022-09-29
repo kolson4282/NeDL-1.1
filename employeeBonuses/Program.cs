@@ -59,7 +59,7 @@
 
         static void Load()
         {
-            names[0] = new Employee("John", "Smith", "Hourly");
+            names[0] = new HourlyEmployee("John", "Smith", 20.50);
             names[1] = new Employee("Keith", "Olson", "Salary");
         }
 
