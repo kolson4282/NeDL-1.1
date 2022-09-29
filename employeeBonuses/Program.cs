@@ -3,7 +3,7 @@
     class Program
     {
 
-        static string[] names = new string[25];
+        static Employee[] names = new Employee[25];
         static void Main()
         {
             string input;
@@ -59,14 +59,18 @@
 
         static void Load()
         {
-            names = new string[] { "John", "Steve", "Tom" };
+            names[0] = new Employee("John", "Smith", "Hourly");
+            names[1] = new Employee("Keith", "Olson", "Salary");
         }
 
         static void Print()
         {
-            foreach (string employee in names)
+            foreach (Employee employee in names)
             {
-                Console.WriteLine(employee);
+                if (employee != null) //Don't print if the employee is null. 
+                {
+                    Console.WriteLine(employee);
+                }
             }
         }
     }
