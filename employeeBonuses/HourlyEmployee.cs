@@ -17,7 +17,7 @@ namespace Bonuses
 
         public override double CalculateBonus()
         {
-            return Rate * 40;
+            return Rate * 80;
         }
 
         public override string ToFileString()
