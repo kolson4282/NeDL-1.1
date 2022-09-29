@@ -2,8 +2,8 @@
 {
     class Program
     {
-
-        static Employee?[] employees = new Employee[25];
+        static int maxLength = 25;
+        static Employee?[] employees = new Employee[maxLength];
         static void Main()
         {
             string input;
@@ -95,9 +95,9 @@
             }
             catch (IndexOutOfRangeException)
             {
-                //catching an index exception to see if there are too many lines in the file. We still load the first 25 if there is.
-                //NOTE: if you save the file after this, only the first 25 lines will be saved, and anything else will be deleted from the file. 
-                Console.WriteLine("There were too many lines in your file. Only loading the first 25\n");
+                //catching an index exception to see if there are too many lines in the file. We still load the first maxLength if there is.
+                //NOTE: if you save the file after this, only the first maxLength lines will be saved, and anything else will be deleted from the file. 
+                Console.WriteLine($"There were too many lines in your file. Only loading the first {maxLength}\n");
                 Print();
             }
             catch (Exception e)
@@ -105,7 +105,7 @@
                 //any other exception we don't want to return any data. 
                 Console.WriteLine("Could not load data.");
                 Console.WriteLine(e.Message);
-                employees = new Employee[25];
+                employees = new Employee[maxLength];
             }
         }
 
@@ -169,7 +169,7 @@
                     return;
                 }
             }
-            Console.WriteLine("The list is full. You can only list 25 employees"); //This will only print if there is no space in the array. 
+            Console.WriteLine($"The list is full. You can only list {maxLength} employees"); //This will only print if there is no space in the array. 
         }
 
         static void Print()
