@@ -29,7 +29,7 @@
                         Console.WriteLine("Updating...");
                         break;
                     case "D": //Delete
-                        Console.WriteLine("Deleting...");
+                        Delete();
                         break;
                     case "Q": //Quit
                         Console.WriteLine("Good Bye!");
@@ -180,6 +180,54 @@
                 {
                     Console.WriteLine(employee);
                 }
+            }
+        }
+
+        static void Delete()
+        {
+            //Delete a restaurant
+            if (employees[0] == null)
+            {
+                Console.WriteLine("Nothing in the list to delete.");
+                return;
+            }
+
+            Print();
+            string firstName;
+            Console.WriteLine("Enter the first name of the employee you would like to delete.");
+            firstName = Console.ReadLine()!;
+            string lastName;
+            Console.WriteLine("Enter the first name of the employee you would like to delete.");
+            lastName = Console.ReadLine()!;
+            bool found = false;
+            for (int i = 0; i < employees.GetLength(0); i++)
+            {
+                if (found)
+                {
+                    //if a record was found and deleted. Move everything else up one space.
+                    if (employees[i] != null)
+                    {
+                        employees[i] = employees[i];
+                        employees[i] = employees[i];
+                    }
+                    else
+                    {
+                        employees[i] = null;
+                    }
+                }
+                //find the first instance of the restaurant to be deleted and delete it. If there are more than one instances, delete the first. 
+                if (employees[i] != null && employees[i]!.FirstName.ToUpper() == firstName.ToUpper() && employees[i]!.LastName.ToUpper() == lastName.ToUpper())
+                {
+                    //if record is found. Set it to ""
+                    employees[i] = null;
+                    found = true;
+                    Console.WriteLine($"Successfully deleted {firstName} {lastName}");
+                }
+
+            }
+            if (!found)
+            {
+                Console.WriteLine($"Didn't find the {firstName} {lastName}. Please try again");
             }
         }
     }//End main class
