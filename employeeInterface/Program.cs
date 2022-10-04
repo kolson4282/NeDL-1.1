@@ -82,7 +82,30 @@ class Program
     }
     private static void AddEmployee(List<Employee> employees)
     {
-        Console.WriteLine("Adding");
+        Console.WriteLine("What is the last name of the employee you would like to add?");
+        string lName = Console.ReadLine()!;
+        Console.WriteLine("What is the first name of the employee you would like to add?");
+        string fName = Console.ReadLine()!;
+        Console.WriteLine("What is the type of the employee you would like to add?");
+        string type = Console.ReadLine()!.ToUpper();
+
+        switch (type)
+        {
+            case "S":
+                Console.WriteLine("What is the yearly salary of this employee?");
+                double salary = Convert.ToDouble(Console.ReadLine());
+                employees.Add(new SalaryEmployee(lName, fName, salary));
+                break;
+            case "H":
+                Console.WriteLine("What is the Hourly Rate of this employee?");
+                double rate = Convert.ToDouble(Console.ReadLine());
+                employees.Add(new HourlyEmployee(lName, fName, rate));
+                break;
+            default:
+                employees.Add(new Employee(lName, fName, type));
+                break;
+        }
+
     }
     private static void UpdateEmployee(List<Employee> employees)
     {
