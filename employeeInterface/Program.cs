@@ -203,7 +203,7 @@ class Program
         }
         if (!found)
         {
-            Console.WriteLine("No employee found");
+            Console.WriteLine($"No employee found containing {name} in their last name");
         }
         else
         {
