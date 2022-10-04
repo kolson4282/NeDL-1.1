@@ -60,10 +60,25 @@ class Program
             }
         } while (input != "Q");
 
-    }
+    }//End Main
 
-    private static void Search(List<Employee> employees)
+    static string GetMenuOption()
     {
+        Console.WriteLine("What would you like to do?");
+        Console.WriteLine("R: Print the list of employees");
+        Console.WriteLine("S: Search for an employee by Last Name");
+        Console.WriteLine("C: Add a new employee");
+        Console.WriteLine("U: Update the information for an employee");
+        Console.WriteLine("D: Delete an employee");
+        Console.WriteLine("Q: Quit");
+        string input = Console.ReadLine()!.ToUpper();
+
+        return input;
+    }//End GetMenuOption
+
+    static void Search(List<Employee> employees)
+    {
+        //searches for all employees that contain the string typed in and prints them out. 
         Console.WriteLine("What is the last name of the employee you would like to find?");
         string name = Console.ReadLine()!;
         bool found = false;
@@ -79,9 +94,10 @@ class Program
         {
             Console.WriteLine($"No employee found containing {name} in their last name");
         }
-    }
-    private static void AddEmployee(List<Employee> employees)
+    }//End of search
+    static void AddEmployee(List<Employee> employees)
     {
+        //Adds a new employee to the list.
         Console.WriteLine("What is the last name of the employee you would like to add?");
         string lName = Console.ReadLine()!;
         Console.WriteLine("What is the first name of the employee you would like to add?");
@@ -106,9 +122,10 @@ class Program
                 break;
         }
 
-    }
-    private static void UpdateEmployee(List<Employee> employees)
+    }//End of add
+    static void UpdateEmployee(List<Employee> employees)
     {
+        //Updates an employee that is specified by the user. Can update Name, Rate or Type. 
         Console.WriteLine("What is the last name of the employee you would like to update?");
         string name = Console.ReadLine()!;
         bool found = false;
@@ -177,9 +194,10 @@ class Program
         {
             Console.WriteLine("Did not update any records");
         }
-    }
-    private static void DeleteEmployee(List<Employee> employees)
+    }//End of update
+    static void DeleteEmployee(List<Employee> employees)
     {
+        //Deletes an employee specified. Asks the user for confirmation before deleting.
         Console.WriteLine("What is the last name of the employee you would like to delete?");
         string name = Console.ReadLine()!;
         bool found = false;
@@ -209,21 +227,7 @@ class Program
         {
             Console.WriteLine("No records deleted");
         }
-    }
-
-    static string GetMenuOption()
-    {
-        Console.WriteLine("What would you like to do?");
-        Console.WriteLine("R: Print the list of employees");
-        Console.WriteLine("S: Search for an employee by Last Name");
-        Console.WriteLine("C: Add a new employee");
-        Console.WriteLine("U: Update the information for an employee");
-        Console.WriteLine("D: Delete an employee");
-        Console.WriteLine("Q: Quit");
-        string input = Console.ReadLine()!.ToUpper();
-
-        return input;
-    }
+    } //End of Delete
 
     static void PrintList(List<Employee> employees)
     {
@@ -231,5 +235,5 @@ class Program
         {
             Console.WriteLine(e);
         }
-    }
-}
+    }//End of PrintList
+}// End of class
