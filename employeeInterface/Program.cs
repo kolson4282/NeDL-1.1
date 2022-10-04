@@ -25,8 +25,8 @@ class Program
         employees.Add(new HourlyEmployee("Last4", "First4", 20.00));
 
         //add Hourly Employees
-        employees.Add(new SalaryEmployee("Last4", "First4", 50000));
-        employees.Add(new SalaryEmployee("Last5", "First5", 100000));
+        employees.Add(new SalaryEmployee("Last5", "First5", 50000));
+        employees.Add(new SalaryEmployee("Last6", "First6", 100000));
 
         PrintList(employees);
 
@@ -49,7 +49,7 @@ class Program
                     UpdateEmployee(employees);
                     break;
                 case "D": //Delete
-                    DeleteEmployee();
+                    DeleteEmployee(employees);
                     break;
                 case "Q": //Quit
                     Console.WriteLine("Good Bye!");
@@ -64,7 +64,21 @@ class Program
 
     private static void Search(List<Employee> employees)
     {
-        Console.WriteLine("Searching");
+        Console.WriteLine("What is the last name of the employee you would like to find?");
+        string name = Console.ReadLine()!;
+        bool found = false;
+        foreach (Employee e in employees)
+        {
+            if (e.LastName.ToUpper().Contains(name.ToUpper()))
+            {
+                Console.WriteLine(e);
+                found = true;
+            }
+        }
+        if (!found)
+        {
+            Console.WriteLine($"No employee found containing {name} in their last name");
+        }
     }
     private static void AddEmployee(List<Employee> employees)
     {
@@ -74,7 +88,7 @@ class Program
     {
         Console.WriteLine("Updating");
     }
-    private static void DeleteEmployee()
+    private static void DeleteEmployee(List<Employee> employees)
     {
         Console.WriteLine("Deleteing");
     }
@@ -93,9 +107,9 @@ class Program
         return input;
     }
 
-    static void PrintList(List<Employee> list)
+    static void PrintList(List<Employee> employees)
     {
-        foreach (Employee e in list)
+        foreach (Employee e in employees)
         {
             Console.WriteLine(e);
         }
