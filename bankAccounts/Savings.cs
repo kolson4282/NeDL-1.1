@@ -7,26 +7,25 @@ class Savings : Account, IInterest
         InterestRate = 0.05;
     }
 
-    public Savings(int id, double balance, double rate, string type = "savings") : base(id, type, balance)
+    public Savings(int id, double balance, double rate, string type = "Savings") : base(id, type, balance)
     {
         InterestRate = rate;
     }
 
     public double CalculateInterest()
     {
-        return Balance * InterestRate;
+        return Math.Round(Balance * InterestRate);
     }
 
-    public override void Withdrawal(double amt)
+    public override bool Withdrawal(double amt)
     {
         if (Balance - amt < 0)
         {
             Console.WriteLine("Cannot bring your balance below $0");
+            return false;
         }
-        else
-        {
-            Balance -= amt;
-        }
+        Balance -= amt;
+        return true;
     }
 
     public override string ToString()

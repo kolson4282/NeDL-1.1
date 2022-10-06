@@ -7,7 +7,7 @@ class Checking : Account
         AnnualFee = 10;
     }
 
-    public Checking(int id, double balance, double fee) : base(id, "checking", balance)
+    public Checking(int id, double balance, double fee) : base(id, "Checking", balance)
     {
         AnnualFee = fee;
     }
@@ -17,15 +17,15 @@ class Checking : Account
         return base.ToString() + $" | Annual Fee: ${AnnualFee}";
     }
 
-    public override void Withdrawal(double amt)
+    public override bool Withdrawal(double amt)
     {
         if (amt > Balance / 2)
         {
             Console.WriteLine($"Can only withdraw up to 50% of your balance. (${Balance / 2})");
+            return false;
         }
-        else
-        {
-            Balance -= amt;
-        }
+
+        Balance -= amt;
+        return true;
     }
 }

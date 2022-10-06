@@ -12,12 +12,12 @@ class CD : Savings
         Penalty = penalty;
     }
 
-    public override void Withdrawal(double amt)
+    public override bool Withdrawal(double amt)
     {
-        double withdrawAmount = amt * (1 + Penalty);
+        double withdrawAmount = Math.Round(amt * (1 + Penalty), 2);
         Console.WriteLine($"There will be a {Penalty * 100}% penalty assessed on this withdrawal.");
-        Console.WriteLine($"Total amount to be withdrawn is {withdrawAmount}");
-        base.Withdrawal(withdrawAmount); //adds the penalty percentage to the amount being withdrawn. 
+        Console.WriteLine($"Total amount to be removed is {withdrawAmount}");
+        return base.Withdrawal(withdrawAmount); //adds the penalty percentage to the amount being withdrawn. 
     }
 
     public override string ToString()

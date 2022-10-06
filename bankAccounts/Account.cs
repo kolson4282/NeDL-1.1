@@ -23,7 +23,7 @@ abstract class Account
         Balance += amt;
     }
 
-    public abstract void Withdrawal(double amt);
+    public abstract bool Withdrawal(double amt);
 
     public override string ToString()
     {
