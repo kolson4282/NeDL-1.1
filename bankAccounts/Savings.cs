@@ -7,7 +7,7 @@ class Savings : Account, IInterest
         InterestRate = 0.05;
     }
 
-    public Savings(int id, double balance, double rate, string type = "Savings") : base(id, type, balance)
+    public Savings(int id, double balance, double rate) : base(id, "Savings", balance)
     {
         InterestRate = rate;
     }

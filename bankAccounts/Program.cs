@@ -71,6 +71,7 @@
         {
             Console.WriteLine(a);
         }
+        Console.WriteLine();
     }
 
     private static void Deposit(List<Account> accounts)
@@ -86,8 +87,16 @@
         }
         else
         {
-            Console.WriteLine("How much would you like to deposit?");
-            double amt = Convert.ToDouble(Console.ReadLine());
+            double amt;
+            do
+            {
+                Console.WriteLine("How much would you like to deposit?");
+                amt = Convert.ToDouble(Console.ReadLine());
+                if (amt < 0)
+                {
+                    Console.WriteLine("Must enter a positive number.");
+                }
+            } while (amt < 0);
             acct.Deposit(amt);
             Console.WriteLine($"Deposited ${amt}");
             Console.WriteLine(acct);
@@ -106,8 +115,16 @@
         }
         else
         {
-            Console.WriteLine("How much would you like to withdraw?");
-            double amt = Convert.ToDouble(Console.ReadLine());
+            double amt;
+            do
+            {
+                Console.WriteLine("How much would you like to Withdraw?");
+                amt = Convert.ToDouble(Console.ReadLine());
+                if (amt < 0)
+                {
+                    Console.WriteLine("Must enter a positive number.");
+                }
+            } while (amt < 0);
             bool withdrawn = acct.Withdrawal(amt);
             if (withdrawn)
             {
