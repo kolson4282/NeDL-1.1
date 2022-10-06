@@ -1,4 +1,15 @@
-﻿class Program
+﻿//Keith Olson
+//10/6/22
+//Bank Account Manager.
+
+//Three types of accounts (Checking, Savings, CD)
+//Have a list of accounts
+//Want to be able to print out all of the accounts
+//Deposit into a specified account
+//Withdraw from a specified account
+//Keep going until the user selects Quit. 
+
+class Program
 {
     static void Main(string[] Args)
     {
@@ -31,7 +42,7 @@
                     break;
             }
         } while (input != "Q");
-    }
+    }//End main
 
     private static List<Account> FillList()
     {
@@ -44,7 +55,7 @@
         accounts.Add(new Savings(5, 3000, .005));
         accounts.Add(new CD(6, 1000, .01, .10));
         return accounts;
-    }
+    }//End FillList
 
     private static string GetOption()
     {
@@ -56,7 +67,7 @@
         string input = Console.ReadLine()!.ToUpper();
 
         return input;
-    }
+    }//End GetOption
 
     private static void WaitForKey()
     {
@@ -64,7 +75,8 @@
         Console.WriteLine("Press any key to continue.");
         Console.ReadKey();
         Console.WriteLine();
-    }
+    }//End WaitForKey
+
     private static void PrintList(List<Account> accounts)
     {
         foreach (Account a in accounts)
@@ -72,7 +84,7 @@
             Console.WriteLine(a);
         }
         Console.WriteLine();
-    }
+    }//End PrintList
 
     private static void Deposit(List<Account> accounts)
     {
@@ -101,7 +113,8 @@
             Console.WriteLine($"Deposited ${amt}");
             Console.WriteLine(acct);
         }
-    }
+    }//End Deposit
+
     private static void Withdraw(List<Account> accounts)
     {
         PrintList(accounts);
@@ -132,7 +145,7 @@
             }
             Console.WriteLine(acct);
         }
-    }
+    }//End Withdraw
 
     private static Account? Search(List<Account> accounts, int id)
     {
@@ -147,5 +160,5 @@
             }
         }
         return acct;
-    }
+    }//End Search
 }
