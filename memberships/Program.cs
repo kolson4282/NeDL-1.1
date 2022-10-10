@@ -25,7 +25,7 @@ namespace memberships
 {
     class Program
     {
-        private static int lastID = 10000;
+        private static int lastID = 0;
         static void Main()
         {
             List<Membership> members = new List<Membership>();
@@ -199,10 +199,14 @@ namespace memberships
             switch (type)
             {
                 case "R":
-                    members.Add(new RegularMembership(++lastID, email));
+                    RegularMembership rMember = new RegularMembership(++lastID, email);
+                    members.Add(rMember);
+                    Console.WriteLine($"You saved ${rMember.GetSpecialOffer()}");
                     break;
                 case "E":
-                    members.Add(new ExecutiveMembership(++lastID, email));
+                    ExecutiveMembership eMember = new ExecutiveMembership(++lastID, email);
+                    members.Add(eMember);
+                    Console.WriteLine($"You saved ${eMember.GetSpecialOffer()}");
                     break;
                 case "P":
                     Console.WriteLine("What is the type of non-profit");
@@ -311,7 +315,7 @@ namespace memberships
             double amt = -1;
             do
             {
-                Console.WriteLine($"What is the amount of the purchase you would like to add to membership {member.ID}");
+                Console.WriteLine($"What is the amount of the purchase for membership {member.ID}");
                 try
                 {
                     amt = Convert.ToDouble(Console.ReadLine());
@@ -339,7 +343,7 @@ namespace memberships
             double amt = -1;
             do
             {
-                Console.WriteLine($"What is the amount of the return you would like to remove from membership {member.ID}");
+                Console.WriteLine($"What is the amount of the return for membership {member.ID}");
                 try
                 {
                     amt = Convert.ToDouble(Console.ReadLine());
