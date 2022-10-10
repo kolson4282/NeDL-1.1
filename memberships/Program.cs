@@ -26,10 +26,10 @@ namespace memberships
             //test data until I implement the Create function
             members.Add(new RegularMembership(1, "test@regular.com", .01));
             members.Add(new CorporateMembership(2, "test@corporate.com", .1));
-            members.Add(new ExecutiveMembership(2, "test@executive.com", .01, .1));
-            members.Add(new NonProfitMembership(2, "test@education.com", .01, "education"));
-            members.Add(new NonProfitMembership(2, "test@religious.com", .01, "religious"));
-            members.Add(new NonProfitMembership(2, "test@military.com", .01, "military"));
+            members.Add(new ExecutiveMembership(3, "test@executive.com", .01, .1));
+            members.Add(new NonProfitMembership(4, "test@education.com", .01, "education"));
+            members.Add(new NonProfitMembership(5, "test@religious.com", .01, "religious"));
+            members.Add(new NonProfitMembership(6, "test@military.com", .01, "military"));
 
             //figure out which mode to enter.
             //depending on the mode, implement the various functions. 
@@ -118,7 +118,7 @@ namespace memberships
                         PrintList();
                         break;
                     case "P": //Purchase
-                        Console.WriteLine("Purchasing...");
+                        Purchase();
                         break;
                     case "R": //Return
                         Console.WriteLine("Returning...");
@@ -138,6 +138,26 @@ namespace memberships
             return answer;
         }
 
+        private static Membership? GetMemberByID()
+        {
+            Console.WriteLine("Please enter the membership ID");
+            try
+            {
+                int id = Convert.ToInt32(Console.ReadLine());
+                foreach (Membership member in members)
+                {
+                    if (member.ID == id)
+                    {
+                        return member;
+                    }
+                }
+            }
+            catch (FormatException)
+            {
+            }
+            Console.WriteLine("Member not found.");
+            return null;
+        }
         private static void PrintList()
         {
             foreach (Membership member in members)
@@ -147,6 +167,34 @@ namespace memberships
         }
 
 
+        private static void Purchase()
+        {
+            Membership? member = GetMemberByID();
+            if (member == null)
+            {
+                return;
+            }
+            double amt = -1;
+            do
+            {
+                Console.WriteLine($"What is the amount of the purchase you would like to add to membership {member.ID}");
+                try
+                {
+
+                    amt = Convert.ToDouble(Console.ReadLine());
+                    if (amt < 0)
+                    {
+                        Console.WriteLine("Purchase amount must be greater than 0.");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Amount must be a numeric value greater than 0");
+                }
+
+            } while (amt < 0);
+            member.Purchase(amt);
+        }
 
     }
 }
