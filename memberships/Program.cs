@@ -20,10 +20,9 @@ namespace memberships
 {
     class Program
     {
+        private static List<Membership> members = new List<Membership>();
         static void Main()
         {
-            List<Membership> members = new List<Membership>();
-
             //test data until I implement the Create function
             members.Add(new RegularMembership(1, "test@regular.com", .01));
             members.Add(new CorporateMembership(2, "test@corporate.com", .1));
@@ -37,67 +36,57 @@ namespace memberships
             string mode;
             do
             {
-                mode = MainMenu();
+                Console.WriteLine("Would you like to enter Admin(A) or Transaction(T) mode? (type Q to quit)");
+                mode = Console.ReadLine()!.ToUpper();
                 string action = "";
                 switch (mode)
                 {
-                    case "A":
-                        action = PerformAdminAction(members);
+                    case "A": //Admin Mode
+                        action = PerformAdminAction();
                         break;
-                    case "T":
-                        action = PerformTransactionAction(members);
+                    case "T": //Transaction Mode
+                        action = PerformTransactionAction();
+                        break;
+                    case "Q":
+                        Console.WriteLine("Goodbye");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option.");
                         break;
                 }
-                Console.WriteLine($"Mode : {mode} | Action: {action}");
             } while (mode != "Q");
 
-            Console.WriteLine("Goodbye");
-        }
-
-        //Get the mode from the user
-        private static string MainMenu()
-        {
-            string answer = "";
-            do
-            {
-                Console.WriteLine("Would you like to enter Admin(A) or Transaction(T) mode? (type Q to quit)");
-                answer = Console.ReadLine()!.ToUpper();
-                if (answer != "A" && answer != "T" && answer != "Q")
-                {
-                    Console.WriteLine("Please enter A for Admin or T for Transactions");
-                }
-            } while (answer != "A" && answer != "T" && answer != "Q");
-            return answer;
         }
 
         //Get an admin action
-        private static string PerformAdminAction(List<Membership> members)
+        //Will stay in Admin mode until the user quits out to the mode selection
+        private static string PerformAdminAction()
         {
             string answer = "";
             do
             {
                 Console.WriteLine("What would you like to do?");
-                Console.WriteLine("C: Create");
-                Console.WriteLine("R: Read");
-                Console.WriteLine("U: Update");
-                Console.WriteLine("D: Delete");
+                Console.WriteLine("C: Create a new member");
+                Console.WriteLine("R: Read the list of members");
+                Console.WriteLine("U: Update a member");
+                Console.WriteLine("D: Delete a member");
                 Console.WriteLine("Q: Return to mode selection");
                 answer = Console.ReadLine()!.ToUpper();
                 switch (answer)
                 {
-                    case "C":
+                    case "C": //Create
                         Console.WriteLine("Creating...");
                         break;
-                    case "R":
-                        PrintList(members);
+                    case "R": //Read
+                        PrintList();
                         break;
-                    case "U":
+                    case "U": //Update
                         Console.WriteLine("Updating...");
                         break;
-                    case "D":
+                    case "D": //Delete
                         Console.WriteLine("Deleting...");
                         break;
-                    case "Q":
+                    case "Q": //Return to Mode selection
                         Console.WriteLine("Returning to Mode Selection");
                         break;
                     default:
@@ -109,7 +98,47 @@ namespace memberships
             return answer;
         }
 
-        private static void PrintList(List<Membership> members)
+        //get a transaction action
+        //Will stay in transaction mode until the user quits out to the mode selection
+        private static string PerformTransactionAction()
+        {
+            string answer = "";
+            do
+            {
+                Console.WriteLine("What would you like to do?");
+                Console.WriteLine("L: List all members");
+                Console.WriteLine("P: Add a Purchase to a membership");
+                Console.WriteLine("R: Add a Return to a membership");
+                Console.WriteLine("A: Apply the Cashback on a membership");
+                Console.WriteLine("Q: Return to mode selection");
+                answer = Console.ReadLine()!.ToUpper();
+                switch (answer)
+                {
+                    case "L": //List
+                        PrintList();
+                        break;
+                    case "P": //Purchase
+                        Console.WriteLine("Purchasing...");
+                        break;
+                    case "R": //Return
+                        Console.WriteLine("Returning...");
+                        break;
+                    case "A": //Apply cash back
+                        Console.WriteLine("Applying Cash Back...");
+                        break;
+                    case "Q": //Quit to mode selection
+                        Console.WriteLine("Returning to Mode Selection");
+                        break;
+                    default:
+                        Console.WriteLine("That is an invalid option. Please try again");
+                        break;
+
+                }
+            } while (answer != "Q");
+            return answer;
+        }
+
+        private static void PrintList()
         {
             foreach (Membership member in members)
             {
@@ -117,43 +146,7 @@ namespace memberships
             }
         }
 
-        //get a transaction action
-        private static string PerformTransactionAction(List<Membership> members)
-        {
-            string answer = "";
-            do
-            {
-                Console.WriteLine("What would you like to do?");
-                Console.WriteLine("L: List");
-                Console.WriteLine("P: Purchase");
-                Console.WriteLine("R: Return");
-                Console.WriteLine("A: Apply Cash Back");
-                Console.WriteLine("Q: Return to mode selection");
-                answer = Console.ReadLine()!.ToUpper();
-                switch (answer)
-                {
-                    case "L":
-                        PrintList(members);
-                        break;
-                    case "P":
-                        Console.WriteLine("Purchasing...");
-                        break;
-                    case "R":
-                        Console.WriteLine("Returning...");
-                        break;
-                    case "A":
-                        Console.WriteLine("Applying Cash Back...");
-                        break;
-                    case "Q":
-                        Console.WriteLine("Returning to Mode Selection");
-                        break;
-                    default:
-                        Console.WriteLine("That is an invalid option. Please try again");
-                        break;
 
-                }
-            } while (answer != "Q");
-            return answer;
-        }
+
     }
 }
