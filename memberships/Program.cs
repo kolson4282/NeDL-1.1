@@ -25,18 +25,17 @@ namespace memberships
 {
     class Program
     {
-        private static int lastID = 0;
+        private static int lastID = 10000;
         static void Main()
         {
             List<Membership> members = new List<Membership>();
             //test data
-            members.Add(new RegularMembership(1, "test@regular.com"));
-            members.Add(new CorporateMembership(2, "test@corporate.com"));
-            members.Add(new ExecutiveMembership(3, "test@executive.com"));
-            members.Add(new NonProfitMembership(4, "test@education.com", "education"));
-            members.Add(new NonProfitMembership(5, "test@religious.com", "religious"));
-            members.Add(new NonProfitMembership(6, "test@military.com", "military"));
-            lastID = 6;
+            members.Add(new RegularMembership(++lastID, "test@regular.com"));
+            members.Add(new CorporateMembership(++lastID, "test@corporate.com"));
+            members.Add(new ExecutiveMembership(++lastID, "test@executive.com"));
+            members.Add(new NonProfitMembership(++lastID, "test@education.com", "education"));
+            members.Add(new NonProfitMembership(++lastID, "test@religious.com", "religious"));
+            members.Add(new NonProfitMembership(++lastID, "test@military.com", "military"));
 
             //figure out which mode to enter.
             //depending on the mode, implement the various functions. 
@@ -189,14 +188,14 @@ namespace memberships
 
         private static void AddMember(List<Membership> members)
         {
+            Console.WriteLine("What is the customers E-mail address?");
+            string email = Console.ReadLine()!;
             Console.WriteLine("What type of membership would you like to add?");
             Console.WriteLine("R: Regular");
             Console.WriteLine("E: Executive");
             Console.WriteLine("C: Corporate");
             Console.WriteLine("P: Non Profit");
             string type = Console.ReadLine()!.ToUpper();
-            Console.WriteLine("What is the customers E-mail address?");
-            string email = Console.ReadLine()!;
             switch (type)
             {
                 case "R":
@@ -214,6 +213,7 @@ namespace memberships
                     members.Add(new CorporateMembership(++lastID, email));
                     break;
                 default:
+                    Console.WriteLine("That is an invalid member type");
                     break;
             }
 
