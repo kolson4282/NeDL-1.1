@@ -84,7 +84,7 @@ namespace memberships
                         UpdateMember(members);
                         break;
                     case "D": //Delete
-                        Console.WriteLine("Deleting...");
+                        DeleteMember(members);
                         break;
                     case "Q": //Return to Mode selection
                         Console.WriteLine("Returning to Mode Selection");
@@ -232,6 +232,28 @@ namespace memberships
                 default:
                     Console.WriteLine("Invalid Option");
                     break;
+            }
+        }
+
+        private static void DeleteMember(List<Membership> members)
+        {
+            int index = GetIndexOfMember(members);
+            if (index == -1)
+            {
+                return;
+            }
+            Console.WriteLine($"You are about to delete member ${members[index].ID}");
+            Console.WriteLine(members[index]);
+            Console.WriteLine("Are you sure you want to continue? (Y/n)");
+            string answer = Console.ReadLine()!.ToUpper();
+            if (answer == "Y")
+            {
+                members.RemoveAt(index);
+                Console.WriteLine("Successfully deleted");
+            }
+            else
+            {
+                Console.WriteLine($"Did not delete member {members[index].ID}");
             }
         }
 
