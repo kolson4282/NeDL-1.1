@@ -29,13 +29,14 @@ namespace memberships
         static void Main()
         {
             List<Membership> members = new List<Membership>();
-            //test data until I implement the Create function
+            //test data
             members.Add(new RegularMembership(1, "test@regular.com"));
             members.Add(new CorporateMembership(2, "test@corporate.com"));
             members.Add(new ExecutiveMembership(3, "test@executive.com"));
             members.Add(new NonProfitMembership(4, "test@education.com", "education"));
             members.Add(new NonProfitMembership(5, "test@religious.com", "religious"));
             members.Add(new NonProfitMembership(6, "test@military.com", "military"));
+            lastID = 6;
 
             //figure out which mode to enter.
             //depending on the mode, implement the various functions. 
@@ -188,7 +189,34 @@ namespace memberships
 
         private static void AddMember(List<Membership> members)
         {
-            members.Add(new RegularMembership(++lastID, "TestAdd"));
+            Console.WriteLine("What type of membership would you like to add?");
+            Console.WriteLine("R: Regular");
+            Console.WriteLine("E: Executive");
+            Console.WriteLine("C: Corporate");
+            Console.WriteLine("P: Non Profit");
+            string type = Console.ReadLine()!.ToUpper();
+            Console.WriteLine("What is the customers E-mail address?");
+            string email = Console.ReadLine()!;
+            switch (type)
+            {
+                case "R":
+                    members.Add(new RegularMembership(++lastID, email));
+                    break;
+                case "E":
+                    members.Add(new ExecutiveMembership(++lastID, email));
+                    break;
+                case "P":
+                    Console.WriteLine("What is the type of non-profit");
+                    string orgType = Console.ReadLine()!.ToLower();
+                    members.Add(new NonProfitMembership(++lastID, email, orgType));
+                    break;
+                case "C":
+                    members.Add(new CorporateMembership(++lastID, email));
+                    break;
+                default:
+                    break;
+            }
+
         }
 
         private static void PrintList(List<Membership> members)
@@ -219,21 +247,25 @@ namespace memberships
                 case "T":
                     Console.WriteLine($"Membership {members[index].ID} is currently type {members[index].Type}.");
                     Console.WriteLine($"What type would you like to change to?");
-                    string type = Console.ReadLine()!.ToLower();
+                    Console.WriteLine("R: Regular");
+                    Console.WriteLine("E: Executive");
+                    Console.WriteLine("C: Corporate");
+                    Console.WriteLine("P: Non Profit");
+                    string type = Console.ReadLine()!.ToUpper();
                     switch (type)
                     {
-                        case "regular":
+                        case "R":
                             members[index] = new RegularMembership(members[index].ID, members[index].Email);
                             break;
-                        case "executive":
+                        case "E":
                             members[index] = new ExecutiveMembership(members[index].ID, members[index].Email);
                             break;
-                        case "non-profit":
+                        case "P":
                             Console.WriteLine("What is the type of non-profit");
                             string orgType = Console.ReadLine()!.ToLower();
                             members[index] = new NonProfitMembership(members[index].ID, members[index].Email, orgType);
                             break;
-                        case "corporate":
+                        case "C":
                             members[index] = new CorporateMembership(members[index].ID, members[index].Email);
                             break;
                         default:
