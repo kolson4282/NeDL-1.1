@@ -20,9 +20,9 @@ namespace memberships
 {
     class Program
     {
-        private static List<Membership> members = new List<Membership>();
         static void Main()
         {
+            List<Membership> members = new List<Membership>();
             //test data until I implement the Create function
             members.Add(new RegularMembership(1, "test@regular.com", .01));
             members.Add(new CorporateMembership(2, "test@corporate.com", .1));
@@ -42,10 +42,10 @@ namespace memberships
                 switch (mode)
                 {
                     case "A": //Admin Mode
-                        action = PerformAdminAction();
+                        action = PerformAdminAction(members);
                         break;
                     case "T": //Transaction Mode
-                        action = PerformTransactionAction();
+                        action = PerformTransactionAction(members);
                         break;
                     case "Q":
                         Console.WriteLine("Goodbye");
@@ -60,7 +60,7 @@ namespace memberships
 
         //Get an admin action
         //Will stay in Admin mode until the user quits out to the mode selection
-        private static string PerformAdminAction()
+        private static string PerformAdminAction(List<Membership> members)
         {
             string answer = "";
             do
@@ -78,7 +78,7 @@ namespace memberships
                         Console.WriteLine("Creating...");
                         break;
                     case "R": //Read
-                        PrintList();
+                        PrintList(members);
                         break;
                     case "U": //Update
                         Console.WriteLine("Updating...");
@@ -100,7 +100,7 @@ namespace memberships
 
         //get a transaction action
         //Will stay in transaction mode until the user quits out to the mode selection
-        private static string PerformTransactionAction()
+        private static string PerformTransactionAction(List<Membership> members)
         {
             string answer = "";
             do
@@ -115,13 +115,13 @@ namespace memberships
                 switch (answer)
                 {
                     case "L": //List
-                        PrintList();
+                        PrintList(members);
                         break;
                     case "P": //Purchase
-                        Purchase();
+                        Purchase(members);
                         break;
                     case "R": //Return
-                        Return();
+                        Return(members);
                         break;
                     case "A": //Apply cash back
                         Console.WriteLine("Applying Cash Back...");
@@ -138,7 +138,7 @@ namespace memberships
             return answer;
         }
 
-        private static Membership? GetMemberByID()
+        private static Membership? GetMemberByID(List<Membership> members)
         {
             Console.WriteLine("Please enter the membership ID");
             try
@@ -158,7 +158,7 @@ namespace memberships
             Console.WriteLine("Member not found.");
             return null;
         }
-        private static void PrintList()
+        private static void PrintList(List<Membership> members)
         {
             foreach (Membership member in members)
             {
@@ -167,9 +167,9 @@ namespace memberships
         }
 
 
-        private static void Purchase()
+        private static void Purchase(List<Membership> members)
         {
-            Membership? member = GetMemberByID();
+            Membership? member = GetMemberByID(members);
             if (member == null)
             {
                 return;
@@ -195,9 +195,9 @@ namespace memberships
             member.Purchase(amt);
         }
 
-        private static void Return()
+        private static void Return(List<Membership> members)
         {
-            Membership? member = GetMemberByID();
+            Membership? member = GetMemberByID(members);
             if (member == null)
             {
                 return;
