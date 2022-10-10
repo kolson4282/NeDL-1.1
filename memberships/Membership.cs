@@ -31,7 +31,7 @@ namespace memberships
 
         public override string ToString()
         {
-            return $"ID: {ID} | Email: {Email} | Cost: ${AnnualCost} | PurchaseTotal: ${PurchaseTotal}";
+            return $"ID: {ID} | Type: {Type} | Email: {Email} | Cost: ${AnnualCost} | PurchaseTotal: ${PurchaseTotal}";
         }
 
         public abstract double CashBack();

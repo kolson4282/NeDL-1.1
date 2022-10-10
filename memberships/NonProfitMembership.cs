@@ -21,7 +21,7 @@ namespace memberships
 
         public override string ToString()
         {
-            return base.ToString() + $" | Cash Back Percent: %{(shouldDouble() ? 2 * CashBackPercent : CashBackPercent) * 100}";
+            return base.ToString() + $" | Organization Type: {OrgType} | Cash Back Percent: %{(shouldDouble() ? 2 * CashBackPercent : CashBackPercent) * 100}";
         }
 
         private bool shouldDouble()
