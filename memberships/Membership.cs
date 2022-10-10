@@ -21,11 +21,18 @@ namespace memberships
 
         public void Purchase(double amt)
         {
+
             PurchaseTotal += amt;
         }
 
         public void Return(double amt)
         {
+            if (PurchaseTotal - amt < 0)
+            {
+                Console.WriteLine("Purchase Total cannot be less than 0");
+                Console.WriteLine("Return was not processed");
+                return;
+            }
             PurchaseTotal -= amt;
         }
 

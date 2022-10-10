@@ -121,7 +121,7 @@ namespace memberships
                         Purchase();
                         break;
                     case "R": //Return
-                        Console.WriteLine("Returning...");
+                        Return();
                         break;
                     case "A": //Apply cash back
                         Console.WriteLine("Applying Cash Back...");
@@ -180,7 +180,6 @@ namespace memberships
                 Console.WriteLine($"What is the amount of the purchase you would like to add to membership {member.ID}");
                 try
                 {
-
                     amt = Convert.ToDouble(Console.ReadLine());
                     if (amt < 0)
                     {
@@ -196,5 +195,32 @@ namespace memberships
             member.Purchase(amt);
         }
 
+        private static void Return()
+        {
+            Membership? member = GetMemberByID();
+            if (member == null)
+            {
+                return;
+            }
+            double amt = -1;
+            do
+            {
+                Console.WriteLine($"What is the amount of the return you would like to remove from membership {member.ID}");
+                try
+                {
+                    amt = Convert.ToDouble(Console.ReadLine());
+                    if (amt < 0)
+                    {
+                        Console.WriteLine("Return amount must be greater than 0.");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Amount must be a numeric value greater than 0");
+                }
+
+            } while (amt < 0);
+            member.Return(amt);
+        }
     }
 }
