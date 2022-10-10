@@ -2,7 +2,7 @@ namespace memberships
 {
     class CorporateMembership : Membership
     {
-        public CorporateMembership(int id, string email, double percent) : base(id, email, "corporate", 50, percent)
+        public CorporateMembership(int id, string email) : base(id, email, "corporate", 50, .05)
         {
 
         }

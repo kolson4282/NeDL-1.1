@@ -2,6 +2,11 @@
 //Keith Olson
 //10/10/22
 //Membership Manager
+
+//Regular membership is 2 percent and $50 a year.
+//Executive membership is 5 percent/10% and $100 a year.
+//Corporate membership is 5 percent and $50 a year.
+//NonProfit membership is 5 percent and $25 a year.
 //1. Admin or Transactions?
 // If admin:
 // 1. Create
@@ -20,16 +25,17 @@ namespace memberships
 {
     class Program
     {
+        private static int lastID = 0;
         static void Main()
         {
             List<Membership> members = new List<Membership>();
             //test data until I implement the Create function
-            members.Add(new RegularMembership(1, "test@regular.com", .01));
-            members.Add(new CorporateMembership(2, "test@corporate.com", .1));
-            members.Add(new ExecutiveMembership(3, "test@executive.com", .01, .1));
-            members.Add(new NonProfitMembership(4, "test@education.com", .01, "education"));
-            members.Add(new NonProfitMembership(5, "test@religious.com", .01, "religious"));
-            members.Add(new NonProfitMembership(6, "test@military.com", .01, "military"));
+            members.Add(new RegularMembership(1, "test@regular.com"));
+            members.Add(new CorporateMembership(2, "test@corporate.com"));
+            members.Add(new ExecutiveMembership(3, "test@executive.com"));
+            members.Add(new NonProfitMembership(4, "test@education.com", "education"));
+            members.Add(new NonProfitMembership(5, "test@religious.com", "religious"));
+            members.Add(new NonProfitMembership(6, "test@military.com", "military"));
 
             //figure out which mode to enter.
             //depending on the mode, implement the various functions. 
@@ -75,7 +81,7 @@ namespace memberships
                 switch (answer)
                 {
                     case "C": //Create
-                        Console.WriteLine("Creating...");
+                        AddMember(members);
                         break;
                     case "R": //Read
                         PrintList(members);
@@ -179,6 +185,12 @@ namespace memberships
             Console.WriteLine("Member not found.");
             return -1;
         }
+
+        private static void AddMember(List<Membership> members)
+        {
+            members.Add(new RegularMembership(++lastID, "TestAdd"));
+        }
+
         private static void PrintList(List<Membership> members)
         {
             foreach (Membership member in members)
@@ -211,18 +223,18 @@ namespace memberships
                     switch (type)
                     {
                         case "regular":
-                            members[index] = new RegularMembership(members[index].ID, members[index].Email, .01);
+                            members[index] = new RegularMembership(members[index].ID, members[index].Email);
                             break;
                         case "executive":
-                            members[index] = new ExecutiveMembership(members[index].ID, members[index].Email, .01, .1);
+                            members[index] = new ExecutiveMembership(members[index].ID, members[index].Email);
                             break;
                         case "non-profit":
                             Console.WriteLine("What is the type of non-profit");
                             string orgType = Console.ReadLine()!.ToLower();
-                            members[index] = new NonProfitMembership(members[index].ID, members[index].Email, .01, orgType);
+                            members[index] = new NonProfitMembership(members[index].ID, members[index].Email, orgType);
                             break;
                         case "corporate":
-                            members[index] = new CorporateMembership(members[index].ID, members[index].Email, .1);
+                            members[index] = new CorporateMembership(members[index].ID, members[index].Email);
                             break;
                         default:
                             Console.WriteLine("Invalid Option");

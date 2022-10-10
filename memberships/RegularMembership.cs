@@ -2,7 +2,7 @@ namespace memberships
 {
     class RegularMembership : Membership, ISpecialOffer
     {
-        public RegularMembership(int id, string email, double percent) : base(id, email, "regular", 50, percent)
+        public RegularMembership(int id, string email) : base(id, email, "regular", 50, .02)
         {
 
         }

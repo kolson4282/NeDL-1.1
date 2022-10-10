@@ -3,7 +3,7 @@ namespace memberships
     class NonProfitMembership : Membership
     {
         public string OrgType { get; }
-        public NonProfitMembership(int id, string email, double lowPercent, string orgType) : base(id, email, "non-profit", 25, lowPercent)
+        public NonProfitMembership(int id, string email, string orgType) : base(id, email, "non-profit", 25, .05)
         {
             OrgType = orgType;
         }
