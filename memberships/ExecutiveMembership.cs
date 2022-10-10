@@ -3,7 +3,7 @@ namespace memberships
     class ExecutiveMembership : Membership
     {
         public double HighCashBackPercent { get; }
-        public ExecutiveMembership(int id, string email, double cost, double lowPercent, double highPercent) : base(id, email, "executive", cost, lowPercent)
+        public ExecutiveMembership(int id, string email, double lowPercent, double highPercent) : base(id, email, "executive", 100, lowPercent)
         {
             HighCashBackPercent = highPercent;
         }
