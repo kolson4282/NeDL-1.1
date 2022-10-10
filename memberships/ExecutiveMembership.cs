@@ -1,6 +1,6 @@
 namespace memberships
 {
-    class ExecutiveMembership : Membership
+    class ExecutiveMembership : Membership, ISpecialOffer
     {
         public double HighCashBackPercent { get; }
         public ExecutiveMembership(int id, string email, double lowPercent, double highPercent) : base(id, email, "executive", 100, lowPercent)
@@ -8,6 +8,10 @@ namespace memberships
             HighCashBackPercent = highPercent;
         }
 
+        public double GetSpecialOffer()
+        {
+            return AnnualCost * .25;
+        }
         public override double CashBack()
         {
             double cashBack;
