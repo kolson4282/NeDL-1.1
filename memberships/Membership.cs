@@ -34,11 +34,6 @@ namespace memberships
             return $"ID: {ID} | Email: {Email} | Cost: ${AnnualCost} | PurchaseTotal: ${PurchaseTotal}";
         }
 
-        public virtual double CashBack()
-        {
-            double cashBack = CashBackPercent * PurchaseTotal;
-            PurchaseTotal = 0;
-            return cashBack;
-        }
+        public abstract double CashBack();
     }
 }

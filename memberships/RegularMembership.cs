@@ -6,5 +6,12 @@ namespace memberships
         {
 
         }
+
+        public override double CashBack()
+        {
+            double cashBack = CashBackPercent * PurchaseTotal;
+            PurchaseTotal = 0;
+            return cashBack;
+        }
     }
 }
