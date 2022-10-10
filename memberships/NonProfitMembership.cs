@@ -11,12 +11,22 @@ namespace memberships
         public override double CashBack()
         {
             double cashBack = PurchaseTotal * CashBackPercent;
-            if (OrgType == "military" || OrgType == "education")
+            if (shouldDouble())
             {
                 cashBack *= 2;
             }
             PurchaseTotal = 0;
             return cashBack;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + $" | Cash Back Percent: %{(shouldDouble() ? 2 * CashBackPercent : CashBackPercent) * 100}";
+        }
+
+        private bool shouldDouble()
+        {
+            return OrgType == "military" || OrgType == "education";
         }
     }
 }

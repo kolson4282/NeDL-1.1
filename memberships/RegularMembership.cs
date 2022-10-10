@@ -13,5 +13,10 @@ namespace memberships
             PurchaseTotal = 0;
             return cashBack;
         }
+
+        public override string ToString()
+        {
+            return base.ToString() + $" | Cash Back Percent: %{CashBackPercent * 100}";
+        }
     }
 }
