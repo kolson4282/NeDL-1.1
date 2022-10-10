@@ -81,7 +81,7 @@ namespace memberships
                         PrintList(members);
                         break;
                     case "U": //Update
-                        Console.WriteLine("Updating...");
+                        UpdateMember(members);
                         break;
                     case "D": //Delete
                         Console.WriteLine("Deleting...");
@@ -124,7 +124,7 @@ namespace memberships
                         Return(members);
                         break;
                     case "A": //Apply cash back
-                        Console.WriteLine("Applying Cash Back...");
+                        ApplyCashBack(members);
                         break;
                     case "Q": //Quit to mode selection
                         Console.WriteLine("Returning to Mode Selection");
@@ -158,6 +158,27 @@ namespace memberships
             Console.WriteLine("Member not found.");
             return null;
         }
+
+        private static int GetIndexOfMember(List<Membership> members)
+        {
+            Console.WriteLine("Please enter the membership ID");
+            try
+            {
+                int id = Convert.ToInt32(Console.ReadLine());
+                for (int i = 0; i < members.Count; i++)
+                {
+                    if (members[i].ID == id)
+                    {
+                        return i;
+                    }
+                }
+            }
+            catch (FormatException)
+            {
+            }
+            Console.WriteLine("Member not found.");
+            return -1;
+        }
         private static void PrintList(List<Membership> members)
         {
             foreach (Membership member in members)
@@ -166,6 +187,53 @@ namespace memberships
             }
         }
 
+        private static void UpdateMember(List<Membership> members)
+        {
+            int index = GetIndexOfMember(members);
+            if (index == -1)
+            {
+                return;
+            }
+            Console.WriteLine("What would you like to update?");
+            Console.WriteLine("E: Email");
+            Console.WriteLine("T: Type");
+            string answer = Console.ReadLine()!.ToUpper();
+            switch (answer)
+            {
+                case "E":
+                    Console.WriteLine($"What is the new email for member {members[index].ID}");
+                    members[index].Email = Console.ReadLine()!;
+                    break;
+                case "T":
+                    Console.WriteLine($"Membership {members[index].ID} is currently type {members[index].Type}.");
+                    Console.WriteLine($"What type would you like to change to?");
+                    string type = Console.ReadLine()!.ToLower();
+                    switch (type)
+                    {
+                        case "regular":
+                            members[index] = new RegularMembership(members[index].ID, members[index].Email, .01);
+                            break;
+                        case "executive":
+                            members[index] = new ExecutiveMembership(members[index].ID, members[index].Email, .01, .1);
+                            break;
+                        case "non-profit":
+                            Console.WriteLine("What is the type of non-profit");
+                            string orgType = Console.ReadLine()!.ToLower();
+                            members[index] = new NonProfitMembership(members[index].ID, members[index].Email, .01, orgType);
+                            break;
+                        case "corporate":
+                            members[index] = new CorporateMembership(members[index].ID, members[index].Email, .1);
+                            break;
+                        default:
+                            Console.WriteLine("Invalid Option");
+                            break;
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Invalid Option");
+                    break;
+            }
+        }
 
         private static void Purchase(List<Membership> members)
         {
@@ -221,6 +289,16 @@ namespace memberships
 
             } while (amt < 0);
             member.Return(amt);
+        }
+
+        private static void ApplyCashBack(List<Membership> members)
+        {
+            Membership? member = GetMemberByID(members);
+            if (member == null)
+            {
+                return;
+            }
+            Console.WriteLine($"Cash-back reward request for membership {member.ID} int the amount of ${member.CashBack()} has been made");
         }
     }
 }
